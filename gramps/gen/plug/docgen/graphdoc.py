@@ -409,6 +409,7 @@ class GVDoc(metaclass=ABCMeta):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     @abstractmethod
     def rewrite_label(self, id, label):
@@ -447,6 +448,9 @@ class GVDoc(metaclass=ABCMeta):
 =======
         
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+
+>>>>>>> fix whitespace
     @abstractmethod
     def start_subgraph(self, graph_id):
         """

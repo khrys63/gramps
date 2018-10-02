@@ -132,6 +132,7 @@ class HourGlassReport(Report):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         self.ahnentafelnum = menu.get_option_by_name('ahnentafelnum').get_value()
 
@@ -149,6 +150,9 @@ class HourGlassReport(Report):
 =======
         
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+
+>>>>>>> fix whitespace
         self.includeid = menu.get_option_by_name('inc_id').get_value()
 
         arrow_str = menu.get_option_by_name('arrow').get_value()
@@ -368,6 +372,7 @@ class HourGlassReport(Report):
 =======
                     self.traverse_up(mother, gen+1)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     self.traverse_up(mother, gen+1, mothersosanumber)
 <<<<<<< HEAD
@@ -407,6 +412,9 @@ class HourGlassReport(Report):
         self.doc.rewrite_label(pid,self.__node_label[pid][0])
 =======
             
+=======
+
+>>>>>>> fix whitespace
             if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
                                   style='invis')
