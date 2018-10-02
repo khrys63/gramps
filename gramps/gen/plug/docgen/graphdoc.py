@@ -382,6 +382,7 @@ class GVDoc(metaclass=ABCMeta):
         """
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Force the same line for two linked nodes.
 =======
         Force same line for two node.
@@ -389,6 +390,9 @@ class GVDoc(metaclass=ABCMeta):
 =======
         Force the same line for two linked nodes.
 >>>>>>> Fix comment
+=======
+        Force same line for two node.
+>>>>>>> add Ahnentafel  option on hourglass
 
         :param id1: The unique identifier of the starting node.
             Example: "p55"
@@ -398,6 +402,7 @@ class GVDoc(metaclass=ABCMeta):
         :type id2: string
         :return: nothing
         """
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -435,6 +440,9 @@ class GVDoc(metaclass=ABCMeta):
         :return: nothing
         """
 
+=======
+        
+>>>>>>> add Ahnentafel  option on hourglass
     @abstractmethod
     def start_subgraph(self, graph_id):
         """
@@ -675,6 +683,7 @@ class GVDocBase(BaseDoc, GVDoc):
         """
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Force the same line for two linked nodes.
 
         Implements GVDocBase.add_samerank().
@@ -703,6 +712,14 @@ class GVDocBase(BaseDoc, GVDoc):
 >>>>>>> add Ahnentafel  option on hourglass
 =======
 >>>>>>> methode rewrite_label
+=======
+        Add a comment.
+
+        Implements GVDocBase.add_comment().
+        """
+        self.write('  {rank=same "%s" "%s"}\n' % (id1, id2))
+
+>>>>>>> add Ahnentafel  option on hourglass
     def start_subgraph(self, graph_id):
         """ Implement GVDocBase.start_subgraph() """
         graph_id = graph_id.replace(' ', '_')  # for user-defined ID with space

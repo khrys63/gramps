@@ -127,6 +127,7 @@ class HourGlassReport(Report):
         self.ahnentafel = menu.get_option_by_name('ahnentafel').get_value()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         self.ahnentafelnum = menu.get_option_by_name('ahnentafelnum').get_value()
 
@@ -141,6 +142,9 @@ class HourGlassReport(Report):
         self.ahnentafelnum = menu.get_option_by_name('ahnentafelnum').get_value()
 
 >>>>>>> new option Ahnentafel number visible
+=======
+        
+>>>>>>> add Ahnentafel  option on hourglass
         self.includeid = menu.get_option_by_name('inc_id').get_value()
 
         arrow_str = menu.get_option_by_name('arrow').get_value()
@@ -207,6 +211,7 @@ class HourGlassReport(Report):
                               tail=self.arrowheadstyle )
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             father_id = ''
             mother_id = ''
 =======
@@ -217,6 +222,10 @@ class HourGlassReport(Report):
             father_id = ''
             mother_id = ''
 >>>>>>> fix empty node
+=======
+            father_id = 0
+            mother_id = 0
+>>>>>>> add Ahnentafel  option on hourglass
 
             # create link from family to father
             father_handle = family.get_father_handle()
@@ -229,10 +238,13 @@ class HourGlassReport(Report):
                 self.add_person(father, fathersosanumber)
 =======
                 self.add_person(father)
+<<<<<<< HEAD
 >>>>>>> add Ahnentafel  option on hourglass
 =======
                 self.add_person(father, fathersosanumber)
 >>>>>>> new option Ahnentafel number visible
+=======
+>>>>>>> add Ahnentafel  option on hourglass
                 father_id = father.get_gramps_id()
                 self.doc.add_link(father.get_gramps_id(), family_id,
                                   head=self.arrowtailstyle,
@@ -293,10 +305,13 @@ class HourGlassReport(Report):
                 self.add_person(mother, mothersosanumber)
 =======
                 self.add_person(mother)
+<<<<<<< HEAD
 >>>>>>> add Ahnentafel  option on hourglass
 =======
                 self.add_person(mother, mothersosanumber)
 >>>>>>> new option Ahnentafel number visible
+=======
+>>>>>>> add Ahnentafel  option on hourglass
                 mother_id = mother.get_gramps_id()
                 self.doc.add_link(mother.get_gramps_id(), family_id,
                                   head=self.arrowtailstyle,
@@ -343,6 +358,7 @@ class HourGlassReport(Report):
             self.rewrite_sosa_number(self.__node_label[pid][2], sosanumber*2+1)
 =======
                     self.traverse_up(mother, gen+1)
+<<<<<<< HEAD
 =======
                     self.traverse_up(mother, gen+1, mothersosanumber)
 <<<<<<< HEAD
@@ -380,6 +396,15 @@ class HourGlassReport(Report):
         """
         self.__node_label[pid][0]+=" - #%s" % (sosanumber)
         self.doc.rewrite_label(pid,self.__node_label[pid][0])
+=======
+            
+            if self.ahnentafel and mother_handle and father_handle:
+                self.doc.add_link(father_id, mother_id,
+                                  style='invis',
+                                  head=self.arrowtailstyle,
+                                  tail=self.arrowheadstyle)
+                self.doc.add_samerank(father_id, mother_id)
+>>>>>>> add Ahnentafel  option on hourglass
 
         # Recursively rewrite for all ancestors
         if self.__node_label[pid][1] != '':
@@ -599,6 +624,11 @@ class HourGlassOptions(MenuReportOptions):
         locale_opt = stdoptions.add_localization_option(menu, category_name)
 
         stdoptions.add_date_format_option(menu, category_name, locale_opt)
+
+        ahnentafelorder = BooleanOption(_("Force Ahnentafel order"), False) # 2180
+        ahnentafelorder.set_help(
+            _("Force Ahnentafel order."))
+        menu.add_option(category_name, "ahnentafel", ahnentafelorder)
 
         ################################
         category_name = _("Graph Style")
