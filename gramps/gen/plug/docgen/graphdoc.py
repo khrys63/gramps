@@ -11,7 +11,11 @@
 # Copyright (C) 2017       Jonathan Biegert <azrdev@qrdn.de>
 # Copyright (C) 2017       Mindaugas Baranauskas
 # Copyright (C) 2017       Paul Culley
+<<<<<<< HEAD
 # Copyright (C) 2018       Christophe aka khrys63
+=======
+# Contribution 2018 by    Christophe <khrys63>
+>>>>>>> Contribution
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
