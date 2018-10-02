@@ -122,12 +122,16 @@ class HourGlassReport(Report):
 
         self.ahnentafel = menu.get_option_by_name('ahnentafel').get_value()
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         self.ahnentafelnum = menu.get_option_by_name('ahnentafelnum').get_value()
 
 =======
         
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+
+>>>>>>> fix whitespace
         self.includeid = menu.get_option_by_name('inc_id').get_value()
 
         arrow_str = menu.get_option_by_name('arrow').get_value()
@@ -273,7 +277,7 @@ class HourGlassReport(Report):
             self.rewrite_sosa_number(self.__node_label[pid][2], sosanumber*2+1)
 =======
                     self.traverse_up(mother, gen+1)
-            
+
             if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
                                   style='invis')
