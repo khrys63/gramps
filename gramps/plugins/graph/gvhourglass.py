@@ -212,6 +212,7 @@ class HourGlassReport(Report):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             father_id = ''
             mother_id = ''
 =======
@@ -226,6 +227,10 @@ class HourGlassReport(Report):
             father_id = 0
             mother_id = 0
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+            father_id = ''
+            mother_id = ''
+>>>>>>> fix empty node
 
             # create link from family to father
             father_handle = family.get_father_handle()
@@ -398,11 +403,9 @@ class HourGlassReport(Report):
         self.doc.rewrite_label(pid,self.__node_label[pid][0])
 =======
             
-            if self.ahnentafel and mother_handle and father_handle:
+            if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
-                                  style='invis',
-                                  head=self.arrowtailstyle,
-                                  tail=self.arrowheadstyle)
+                                  style='invis')
                 self.doc.add_samerank(father_id, mother_id)
 >>>>>>> add Ahnentafel  option on hourglass
 
