@@ -476,8 +476,11 @@ class HourGlassReport(Report):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> new option Ahnentafel number visible
+=======
+>>>>>>> fix sosa for descendant
         if death:
             death = " – %s" % death
 
@@ -489,6 +492,9 @@ class HourGlassReport(Report):
             label = "%s \\n(%s%s)\\n(%s)" % (name, birth, death, p_id)
 =======
         if self.ahnentafelnum:
+=======
+        if self.ahnentafelnum and sosanumber != 0:
+>>>>>>> fix sosa for descendant
             if self.includeid == 0: # no ID
                 label = "%s \\n(%s - %s)\\n #%s" % (name, birth, death, sosanumber)
             elif self.includeid == 1: # same line
