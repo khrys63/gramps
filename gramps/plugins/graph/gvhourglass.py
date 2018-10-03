@@ -327,6 +327,7 @@ class HourGlassReport(Report):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if death:
             death = " – %s" % death
 
@@ -358,6 +359,17 @@ class HourGlassReport(Report):
             elif self.includeid == 2: # own line
                 label = "%s \\n(%s - %s)\\n(%s)" % (name, birth, death, p_id)
 >>>>>>> new option Ahnentafel number visible
+=======
+        if self.includeid == 0: # no ID
+            label = "%s \\n(%s - %s)" % (name, birth, death)
+        elif self.includeid == 1: # same line
+            label = "%s (%s)\\n(%s - %s)" % (name, p_id, birth, death)
+        elif self.includeid == 2: # own line
+            label = "%s \\n(%s - %s)\\n(%s)" % (name, birth, death, p_id)
+
+        if self.ahnentafelnum and sosanumber != 0:
+            label +="\\n #%s" % (sosanumber)
+>>>>>>> simplify code
 
         label = label.replace('"', '\\\"')
 
