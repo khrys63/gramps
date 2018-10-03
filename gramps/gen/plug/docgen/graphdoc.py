@@ -377,10 +377,14 @@ class GVDoc(metaclass=ABCMeta):
     def add_samerank(self, id1, id2):
         """
 <<<<<<< HEAD
+<<<<<<< HEAD
         Force the same line for two linked nodes.
 =======
         Force same line for two node.
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+        Force the same line for two linked nodes.
+>>>>>>> Fix comment
 
         :param id1: The unique identifier of the starting node.
             Example: "p55"
@@ -652,6 +656,7 @@ class GVDocBase(BaseDoc, GVDoc):
     def add_samerank(self, id1, id2):
         """
 <<<<<<< HEAD
+<<<<<<< HEAD
         Force the same line for two linked nodes.
 
         Implements GVDocBase.add_samerank().
@@ -668,8 +673,11 @@ class GVDocBase(BaseDoc, GVDoc):
 
 =======
         Add a comment.
+=======
+        Force the same line for two linked nodes.
+>>>>>>> Fix comment
 
-        Implements GVDocBase.add_comment().
+        Implements GVDocBase.add_samerank().
         """
         self.write('  {rank=same "%s" "%s"}\n' % (id1, id2))
 
