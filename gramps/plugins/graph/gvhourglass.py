@@ -131,7 +131,12 @@ class HourGlassReport(Report):
 >>>>>>> add Ahnentafel  option on hourglass
 =======
 
+<<<<<<< HEAD
 >>>>>>> fix whitespace
+=======
+        self.ahnentafelnum = menu.get_option_by_name('ahnentafelnum').get_value()
+
+>>>>>>> new option Ahnentafel number visible
         self.includeid = menu.get_option_by_name('inc_id').get_value()
 
         arrow_str = menu.get_option_by_name('arrow').get_value()
@@ -216,10 +221,14 @@ class HourGlassReport(Report):
                 self.__family_father.append(family_handle)
                 father = self.__db.get_person_from_handle(father_handle)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 self.add_person(father, fathersosanumber)
 =======
                 self.add_person(father)
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+                self.add_person(father, fathersosanumber)
+>>>>>>> new option Ahnentafel number visible
                 father_id = father.get_gramps_id()
                 self.doc.add_link(father.get_gramps_id(), family_id,
                                   head=self.arrowtailstyle,
@@ -230,8 +239,11 @@ class HourGlassReport(Report):
                 if father_handle not in self.__used_people:
                     self.__used_people.append(father_handle)
                     self.traverse_up(father, gen+1, fathersosanumber)
+<<<<<<< HEAD
             elif family_handle in self.__family_father and self.ahnentafelnum:
                 self.rewrite_sosa_number(self.__db.get_person_from_handle(father_handle).get_gramps_id(), fathersosanumber)
+=======
+>>>>>>> new option Ahnentafel number visible
 
             # create link from family to mother
             mother_handle = family.get_mother_handle()
@@ -240,10 +252,14 @@ class HourGlassReport(Report):
                 self.__family_mother.append(family_handle)
                 mother = self.__db.get_person_from_handle(mother_handle)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 self.add_person(mother, mothersosanumber)
 =======
                 self.add_person(mother)
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+                self.add_person(mother, mothersosanumber)
+>>>>>>> new option Ahnentafel number visible
                 mother_id = mother.get_gramps_id()
                 self.doc.add_link(mother.get_gramps_id(), family_id,
                                   head=self.arrowtailstyle,
@@ -253,6 +269,7 @@ class HourGlassReport(Report):
                 # no need to go up if she is a mother in another family
                 if mother_handle not in self.__used_people:
                     self.__used_people.append(mother_handle)
+<<<<<<< HEAD
 <<<<<<< HEAD
                     self.traverse_up(mother, gen+1, mothersosanumber)
             elif family_handle in self.__family_mother and self.ahnentafelnum:
@@ -277,6 +294,9 @@ class HourGlassReport(Report):
             self.rewrite_sosa_number(self.__node_label[pid][2], sosanumber*2+1)
 =======
                     self.traverse_up(mother, gen+1)
+=======
+                    self.traverse_up(mother, gen+1, mothersosanumber)
+>>>>>>> new option Ahnentafel number visible
 
             if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
@@ -305,6 +325,7 @@ class HourGlassReport(Report):
         else:
             death = ""
 
+<<<<<<< HEAD
         if death:
             death = " – %s" % death
 
@@ -317,6 +338,22 @@ class HourGlassReport(Report):
 
         if self.ahnentafelnum and sosanumber != 0:
             label +="\\n #%s" % (sosanumber)
+=======
+        if self.ahnentafelnum:
+            if self.includeid == 0: # no ID
+                label = "%s \\n(%s - %s)\\n #%s" % (name, birth, death, sosanumber)
+            elif self.includeid == 1: # same line
+                label = "%s (%s)\\n(%s - %s)\\n #%s" % (name, p_id, birth, death, sosanumber)
+            elif self.includeid == 2: # own line
+                label = "%s \\n(%s - %s)\\n(%s)\\n #%s" % (name, birth, death, p_id, sosanumber)
+        else:
+            if self.includeid == 0: # no ID
+                label = "%s \\n(%s - %s)" % (name, birth, death)
+            elif self.includeid == 1: # same line
+                label = "%s (%s)\\n(%s - %s)" % (name, p_id, birth, death)
+            elif self.includeid == 2: # own line
+                label = "%s \\n(%s - %s)\\n(%s)" % (name, birth, death, p_id)
+>>>>>>> new option Ahnentafel number visible
 
         label = label.replace('"', '\\\"')
 
@@ -451,11 +488,6 @@ class HourGlassOptions(MenuReportOptions):
 
         stdoptions.add_date_format_option(menu, category_name, locale_opt)
 
-        ahnentafelorder = BooleanOption(_("Force Ahnentafel order"), False) # 2180
-        ahnentafelorder.set_help(
-            _("Force Sosa / Sosa-Stradonitz / ahnentafel order for all ancestors where husbands are always on the left."))
-        menu.add_option(category_name, "ahnentafel", ahnentafelorder)
-
         ################################
         category_name = _("Graph Style")
         ################################
@@ -479,7 +511,11 @@ class HourGlassOptions(MenuReportOptions):
 
         ahnentafelorder = BooleanOption(_("Force Ahnentafel order"), False) # 10826
         ahnentafelorder.set_help(
+<<<<<<< HEAD
             _("Force Sosa / Sosa-Stradonitz / Ahnentafel layout order for all ancestors, so that fathers are always on the left branch and mothers are on the right branch."))
+=======
+            _("Force Sosa / Sosa-Stradonitz / Ahnentafel order for all ancestors where husbands are always on the left."))
+>>>>>>> new option Ahnentafel number visible
         menu.add_option(category_name, "ahnentafel", ahnentafelorder)
 
         ahnentafelnumvisible = BooleanOption(_("Ahnentafel number visible"), False) # 10826
