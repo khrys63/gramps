@@ -326,6 +326,7 @@ class HourGlassReport(Report):
             death = ""
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if death:
             death = " – %s" % death
 
@@ -340,6 +341,9 @@ class HourGlassReport(Report):
             label +="\\n #%s" % (sosanumber)
 =======
         if self.ahnentafelnum:
+=======
+        if self.ahnentafelnum and sosanumber != 0:
+>>>>>>> fix sosa for descendant
             if self.includeid == 0: # no ID
                 label = "%s \\n(%s - %s)\\n #%s" % (name, birth, death, sosanumber)
             elif self.includeid == 1: # same line
