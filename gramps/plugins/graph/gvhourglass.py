@@ -453,7 +453,7 @@ class HourGlassOptions(MenuReportOptions):
 
         ahnentafelorder = BooleanOption(_("Force Ahnentafel order"), False) # 2180
         ahnentafelorder.set_help(
-            _("Force Ahnentafel order."))
+            _("Force Ahnentafel order for all ancestors and fix the Father-Mother order."))
         menu.add_option(category_name, "ahnentafel", ahnentafelorder)
 
         ################################
