@@ -418,6 +418,20 @@ class GVDoc(metaclass=ABCMeta):
 
 >>>>>>> fix whitespace
     @abstractmethod
+    def rewrite_label(self, id, label):
+        """
+        Rewrite the node label.
+
+        :param id: The unique identifier of the node.
+            Example: "p55"
+        :type id: string
+        :param label: The text to be displayed in the node.
+            Example: "John Smith"
+        :type label: string
+        :return: nothing
+        """
+
+    @abstractmethod
     def start_subgraph(self, graph_id):
         """
         Start a subgraph in this graph.
@@ -671,6 +685,7 @@ class GVDocBase(BaseDoc, GVDoc):
         """
         self.write('  "%s" [label = "%s"]\n' % (id, label))
 
+<<<<<<< HEAD
 =======
         Add a comment.
 =======
@@ -682,6 +697,8 @@ class GVDocBase(BaseDoc, GVDoc):
         self.write('  {rank=same "%s" "%s"}\n' % (id1, id2))
 
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+>>>>>>> methode rewrite_label
     def start_subgraph(self, graph_id):
         """ Implement GVDocBase.start_subgraph() """
         graph_id = graph_id.replace(' ', '_')  # for user-defined ID with space
