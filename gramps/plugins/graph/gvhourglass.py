@@ -528,10 +528,14 @@ class HourGlassOptions(MenuReportOptions):
         ahnentafelorder = BooleanOption(_("Force Ahnentafel order"), False) # 10826
         ahnentafelorder.set_help(
 <<<<<<< HEAD
+<<<<<<< HEAD
             _("Force Sosa / Sosa-Stradonitz / Ahnentafel layout order for all ancestors, so that fathers are always on the left branch and mothers are on the right branch."))
 =======
             _("Force Sosa / Sosa-Stradonitz / Ahnentafel order for all ancestors where husbands are always on the left."))
 >>>>>>> new option Ahnentafel number visible
+=======
+            _("Force Sosa / Sosa-Stradonitz / Ahnentafel layout order for all ancestors, so that fathers are always on the left branch and mothers are on the right branch."))
+>>>>>>> ahnentafelorder help
         menu.add_option(category_name, "ahnentafel", ahnentafelorder)
 
         ahnentafelnumvisible = BooleanOption(_("Ahnentafel number visible"), False) # 10826
