@@ -294,6 +294,7 @@ class HourGlassReport(Report):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             elif family_handle in self.__family_father and self.ahnentafelnum:
                 self.rewrite_sosa_number(self.__db.get_person_from_handle(father_handle).get_gramps_id(), fathersosanumber)
 =======
@@ -319,6 +320,13 @@ class HourGlassReport(Report):
 >>>>>>> Recursively rewrite sosa number for all ancestors
 =======
 >>>>>>> new option Ahnentafel number visible
+=======
+            elif family_handle in self.__family_father:
+                father = self.__db.get_person_from_handle(father_handle)
+                father_id = father.get_gramps_id()
+                self.__node_label[father_id]+=" - #%s" % (fathersosanumber)
+                self.doc.rewrite_label(father_id,self.__node_label[father_id])
+>>>>>>> fix multiple sosa number on same node
 
             # create link from family to mother
             mother_handle = family.get_mother_handle()
@@ -395,6 +403,7 @@ class HourGlassReport(Report):
                     self.traverse_up(mother, gen+1, mothersosanumber)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> new option Ahnentafel number visible
 =======
             elif family_handle in self.__family_mother:
@@ -424,6 +433,13 @@ class HourGlassReport(Report):
                                   style='invis')
                 self.doc.add_samerank(father_id, mother_id)
 >>>>>>> add Ahnentafel  option on hourglass
+=======
+            elif family_handle in self.__family_mother:
+                mother = self.__db.get_person_from_handle(mother_handle)
+                mother_id = mother.get_gramps_id()
+                self.__node_label[mother_id]+=" - #%s" % (mothersosanumber)
+                self.doc.rewrite_label(mother_id,self.__node_label[mother_id])
+>>>>>>> fix multiple sosa number on same node
 
 <<<<<<< HEAD
     def rewrite_sosa_number(self, pid, sosanumber):
@@ -564,6 +580,7 @@ class HourGlassReport(Report):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         # save node with them label, father node id, mother node id and sosanumber
         self.__node_label[p_id] = [label, '', '']
 =======
@@ -577,6 +594,9 @@ class HourGlassReport(Report):
 =======
         self.__node_label[p_id] = [label, '', '']
 >>>>>>> optimization - remove useless array[3]
+=======
+        self.__node_label[p_id] = label
+>>>>>>> fix multiple sosa number on same node
 
     def add_family(self, family):
         """
