@@ -240,10 +240,18 @@ class HourGlassReport(Report):
                     self.__used_people.append(father_handle)
                     self.traverse_up(father, gen+1, fathersosanumber)
 <<<<<<< HEAD
+<<<<<<< HEAD
             elif family_handle in self.__family_father and self.ahnentafelnum:
                 self.rewrite_sosa_number(self.__db.get_person_from_handle(father_handle).get_gramps_id(), fathersosanumber)
 =======
 >>>>>>> new option Ahnentafel number visible
+=======
+            elif family_handle in self.__family_father:
+                father = self.__db.get_person_from_handle(father_handle)
+                father_id = father.get_gramps_id()
+                self.__node_label[father_id]+=" - #%s" % (fathersosanumber)
+                self.doc.rewrite_label(father_id,self.__node_label[father_id])
+>>>>>>> fix multiple sosa number on same node
 
             # create link from family to mother
             mother_handle = family.get_mother_handle()
@@ -296,7 +304,15 @@ class HourGlassReport(Report):
                     self.traverse_up(mother, gen+1)
 =======
                     self.traverse_up(mother, gen+1, mothersosanumber)
+<<<<<<< HEAD
 >>>>>>> new option Ahnentafel number visible
+=======
+            elif family_handle in self.__family_mother:
+                mother = self.__db.get_person_from_handle(mother_handle)
+                mother_id = mother.get_gramps_id()
+                self.__node_label[mother_id]+=" - #%s" % (mothersosanumber)
+                self.doc.rewrite_label(mother_id,self.__node_label[mother_id])
+>>>>>>> fix multiple sosa number on same node
 
             if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
@@ -376,8 +392,12 @@ class HourGlassReport(Report):
         (shape, style, color, fill) = self.get_gender_style(person)
         self.doc.add_node(p_id, label, shape, color, style, fill)
 
+<<<<<<< HEAD
         # save node with them label, father node id, mother node id and sosanumber
         self.__node_label[p_id] = [label, '', '']
+=======
+        self.__node_label[p_id] = label
+>>>>>>> fix multiple sosa number on same node
 
     def add_family(self, family):
         """
