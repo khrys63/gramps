@@ -234,7 +234,11 @@ class HourGlassReport(Report):
                                   head=self.arrowtailstyle,
                                   tail=self.arrowheadstyle )
                 # update node with its father node id
+<<<<<<< HEAD
                 self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2]]
+=======
+                self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2], self.__node_label[person_id][3]] 
+>>>>>>> Recursively rewrite sosa number for all ancestors
                 # no need to go up if he is a father in another family
                 if father_handle not in self.__used_people:
                     self.__used_people.append(father_handle)
@@ -253,6 +257,7 @@ class HourGlassReport(Report):
 =======
             elif family_handle in self.__family_father and self.ahnentafelnum:
 <<<<<<< HEAD
+<<<<<<< HEAD
                 father_id = self.__db.get_person_from_handle(father_handle).get_gramps_id()
 >>>>>>> fix test on ahnentafelnum
                 self.__node_label[father_id]+=" - #%s" % (fathersosanumber)
@@ -261,6 +266,9 @@ class HourGlassReport(Report):
 =======
                 self.rewrite_sosa_number(father_handle, fathersosanumber)
 >>>>>>> optimize code
+=======
+                self.rewrite_sosa_number(self.__db.get_person_from_handle(father_handle).get_gramps_id(), fathersosanumber)
+>>>>>>> Recursively rewrite sosa number for all ancestors
 
             # create link from family to mother
             mother_handle = family.get_mother_handle()
@@ -282,7 +290,11 @@ class HourGlassReport(Report):
                                   head=self.arrowtailstyle,
                                   tail=self.arrowheadstyle)
                 # update node with its mother node id
+<<<<<<< HEAD
                 self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id]
+=======
+                self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id, self.__node_label[person_id][3]] 
+>>>>>>> Recursively rewrite sosa number for all ancestors
                 # no need to go up if she is a mother in another family
                 if mother_handle not in self.__used_people:
                     self.__used_people.append(mother_handle)
@@ -323,6 +335,7 @@ class HourGlassReport(Report):
 =======
             elif family_handle in self.__family_mother and self.ahnentafelnum:
 <<<<<<< HEAD
+<<<<<<< HEAD
                 mother_id = self.__db.get_person_from_handle(mother_handle).get_gramps_id()
 >>>>>>> fix test on ahnentafelnum
                 self.__node_label[mother_id]+=" - #%s" % (mothersosanumber)
@@ -331,6 +344,9 @@ class HourGlassReport(Report):
 =======
                 self.rewrite_sosa_number(mother_handle, mothersosanumber)
 >>>>>>> optimize code
+=======
+                self.rewrite_sosa_number(self.__db.get_person_from_handle(mother_handle).get_gramps_id(), mothersosanumber)
+>>>>>>> Recursively rewrite sosa number for all ancestors
 
             if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
@@ -338,10 +354,18 @@ class HourGlassReport(Report):
                 self.doc.add_samerank(father_id, mother_id)
 >>>>>>> add Ahnentafel  option on hourglass
 
-    def rewrite_sosa_number(self, handle, sosanumber):
-        p_id = self.__db.get_person_from_handle(handle).get_gramps_id()
-        self.__node_label[p_id]+=" - #%s" % (sosanumber)
-        self.doc.rewrite_label(p_id,self.__node_label[p_id])
+    def rewrite_sosa_number(self, pid, sosanumber):
+        """
+        Rewrite the Sosa number of a node for multiple sosa member in the tree.
+        """
+        self.__node_label[pid][0]+=" - #%s" % (sosanumber)
+        self.doc.rewrite_label(pid,self.__node_label[pid][0])
+
+        # Recursively rewrite for all ancestors
+        if self.__node_label[pid][1] != '':
+            self.rewrite_sosa_number(self.__node_label[pid][1], sosanumber*2)
+        if self.__node_label[pid][2] != '':
+            self.rewrite_sosa_number(self.__node_label[pid][2], sosanumber*2+1)
 
     def add_person(self, person, sosanumber):
         """
@@ -416,11 +440,16 @@ class HourGlassReport(Report):
         self.doc.add_node(p_id, label, shape, color, style, fill)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         # save node with them label, father node id, mother node id and sosanumber
         self.__node_label[p_id] = [label, '', '']
 =======
         self.__node_label[p_id] = label
 >>>>>>> fix multiple sosa number on same node
+=======
+        # save node with them label, father node id, mother node id and sosanumber
+        self.__node_label[p_id] = [label, '', '', sosanumber]
+>>>>>>> Recursively rewrite sosa number for all ancestors
 
     def add_family(self, family):
         """
