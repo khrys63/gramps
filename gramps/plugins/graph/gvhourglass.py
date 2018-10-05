@@ -241,6 +241,7 @@ class HourGlassReport(Report):
                     self.traverse_up(father, gen+1, fathersosanumber)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             elif family_handle in self.__family_father and self.ahnentafelnum:
                 self.rewrite_sosa_number(self.__db.get_person_from_handle(father_handle).get_gramps_id(), fathersosanumber)
 =======
@@ -249,6 +250,10 @@ class HourGlassReport(Report):
             elif family_handle in self.__family_father:
                 father = self.__db.get_person_from_handle(father_handle)
                 father_id = father.get_gramps_id()
+=======
+            elif family_handle in self.__family_father and self.ahnentafelnum:
+                father_id = self.__db.get_person_from_handle(father_handle).get_gramps_id()
+>>>>>>> fix test on ahnentafelnum
                 self.__node_label[father_id]+=" - #%s" % (fathersosanumber)
                 self.doc.rewrite_label(father_id,self.__node_label[father_id])
 >>>>>>> fix multiple sosa number on same node
@@ -305,11 +310,16 @@ class HourGlassReport(Report):
 =======
                     self.traverse_up(mother, gen+1, mothersosanumber)
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> new option Ahnentafel number visible
 =======
             elif family_handle in self.__family_mother:
                 mother = self.__db.get_person_from_handle(mother_handle)
                 mother_id = mother.get_gramps_id()
+=======
+            elif family_handle in self.__family_mother and self.ahnentafelnum:
+                mother_id = self.__db.get_person_from_handle(mother_handle).get_gramps_id()
+>>>>>>> fix test on ahnentafelnum
                 self.__node_label[mother_id]+=" - #%s" % (mothersosanumber)
                 self.doc.rewrite_label(mother_id,self.__node_label[mother_id])
 >>>>>>> fix multiple sosa number on same node
