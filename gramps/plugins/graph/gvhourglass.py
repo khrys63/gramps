@@ -252,11 +252,15 @@ class HourGlassReport(Report):
                 father_id = father.get_gramps_id()
 =======
             elif family_handle in self.__family_father and self.ahnentafelnum:
+<<<<<<< HEAD
                 father_id = self.__db.get_person_from_handle(father_handle).get_gramps_id()
 >>>>>>> fix test on ahnentafelnum
                 self.__node_label[father_id]+=" - #%s" % (fathersosanumber)
                 self.doc.rewrite_label(father_id,self.__node_label[father_id])
 >>>>>>> fix multiple sosa number on same node
+=======
+                self.rewrite_sosa_number(father_handle, fathersosanumber)
+>>>>>>> optimize code
 
             # create link from family to mother
             mother_handle = family.get_mother_handle()
@@ -318,17 +322,26 @@ class HourGlassReport(Report):
                 mother_id = mother.get_gramps_id()
 =======
             elif family_handle in self.__family_mother and self.ahnentafelnum:
+<<<<<<< HEAD
                 mother_id = self.__db.get_person_from_handle(mother_handle).get_gramps_id()
 >>>>>>> fix test on ahnentafelnum
                 self.__node_label[mother_id]+=" - #%s" % (mothersosanumber)
                 self.doc.rewrite_label(mother_id,self.__node_label[mother_id])
 >>>>>>> fix multiple sosa number on same node
+=======
+                self.rewrite_sosa_number(mother_handle, mothersosanumber)
+>>>>>>> optimize code
 
             if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
                                   style='invis')
                 self.doc.add_samerank(father_id, mother_id)
 >>>>>>> add Ahnentafel  option on hourglass
+
+    def rewrite_sosa_number(self, handle, sosanumber):
+        p_id = self.__db.get_person_from_handle(handle).get_gramps_id()
+        self.__node_label[p_id]+=" - #%s" % (sosanumber)
+        self.doc.rewrite_label(p_id,self.__node_label[p_id])
 
     def add_person(self, person, sosanumber):
         """
