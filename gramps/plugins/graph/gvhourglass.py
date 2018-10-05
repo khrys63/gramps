@@ -308,6 +308,7 @@ class HourGlassReport(Report):
             elif family_handle in self.__family_father and self.ahnentafelnum:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 father_id = self.__db.get_person_from_handle(father_handle).get_gramps_id()
 >>>>>>> fix test on ahnentafelnum
                 self.__node_label[father_id]+=" - #%s" % (fathersosanumber)
@@ -332,6 +333,9 @@ class HourGlassReport(Report):
                 self.__node_label[father_id]+=" - #%s" % (fathersosanumber)
                 self.doc.rewrite_label(father_id,self.__node_label[father_id])
 >>>>>>> fix multiple sosa number on same node
+=======
+                self.rewrite_sosa_number(father_handle, fathersosanumber)
+>>>>>>> optimize code
 
             # create link from family to mother
             mother_handle = family.get_mother_handle()
@@ -419,6 +423,7 @@ class HourGlassReport(Report):
             elif family_handle in self.__family_mother and self.ahnentafelnum:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 mother_id = self.__db.get_person_from_handle(mother_handle).get_gramps_id()
 >>>>>>> fix test on ahnentafelnum
                 self.__node_label[mother_id]+=" - #%s" % (mothersosanumber)
@@ -433,6 +438,9 @@ class HourGlassReport(Report):
 =======
                     self.traverse_up(mother, gen+1, mothersosanumber)
 >>>>>>> new option Ahnentafel number visible
+=======
+                self.rewrite_sosa_number(mother_handle, mothersosanumber)
+>>>>>>> optimize code
 
             if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
@@ -461,6 +469,7 @@ class HourGlassReport(Report):
             
 =======
 
+<<<<<<< HEAD
 >>>>>>> fix whitespace
             if self.ahnentafel and mother_handle and father_handle and father_id != '' and mother_id != '':
                 self.doc.add_link(father_id, mother_id,
@@ -476,6 +485,13 @@ class HourGlassReport(Report):
 
 =======
 >>>>>>> new option Ahnentafel number visible
+=======
+    def rewrite_sosa_number(self, handle, sosanumber):
+        p_id = self.__db.get_person_from_handle(handle).get_gramps_id()
+        self.__node_label[p_id]+=" - #%s" % (sosanumber)
+        self.doc.rewrite_label(p_id,self.__node_label[p_id])
+
+>>>>>>> optimize code
     def add_person(self, person, sosanumber):
         """
         Add a person to the Graph. The node id will be the person's gramps id.
