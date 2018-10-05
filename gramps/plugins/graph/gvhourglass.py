@@ -235,10 +235,14 @@ class HourGlassReport(Report):
                                   tail=self.arrowheadstyle )
                 # update node with its father node id
 <<<<<<< HEAD
+<<<<<<< HEAD
                 self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2]]
 =======
                 self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2], self.__node_label[person_id][3]] 
 >>>>>>> Recursively rewrite sosa number for all ancestors
+=======
+                self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2], self.__node_label[person_id][3]]
+>>>>>>> fix whitespace
                 # no need to go up if he is a father in another family
                 if father_handle not in self.__used_people:
                     self.__used_people.append(father_handle)
@@ -291,10 +295,14 @@ class HourGlassReport(Report):
                                   tail=self.arrowheadstyle)
                 # update node with its mother node id
 <<<<<<< HEAD
+<<<<<<< HEAD
                 self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id]
 =======
                 self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id, self.__node_label[person_id][3]] 
 >>>>>>> Recursively rewrite sosa number for all ancestors
+=======
+                self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id, self.__node_label[person_id][3]]
+>>>>>>> fix whitespace
                 # no need to go up if she is a mother in another family
                 if mother_handle not in self.__used_people:
                     self.__used_people.append(mother_handle)
