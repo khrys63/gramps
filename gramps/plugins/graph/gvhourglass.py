@@ -278,6 +278,7 @@ class HourGlassReport(Report):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2]]
 =======
                 self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2], self.__node_label[person_id][3]] 
@@ -294,6 +295,9 @@ class HourGlassReport(Report):
 =======
                 self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2], self.__node_label[person_id][3]]
 >>>>>>> fix whitespace
+=======
+                self.__node_label[person_id] = [self.__node_label[person_id][0], father_id, self.__node_label[person_id][2]]
+>>>>>>> optimization - remove useless array[3]
                 # no need to go up if he is a father in another family
                 if father_handle not in self.__used_people:
                     self.__used_people.append(father_handle)
@@ -381,6 +385,7 @@ class HourGlassReport(Report):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id]
 =======
                 self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id, self.__node_label[person_id][3]] 
@@ -397,6 +402,9 @@ class HourGlassReport(Report):
 =======
                 self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id, self.__node_label[person_id][3]]
 >>>>>>> fix whitespace
+=======
+                self.__node_label[person_id] = [self.__node_label[person_id][0], self.__node_label[person_id][1], mother_id]
+>>>>>>> optimization - remove useless array[3]
                 # no need to go up if she is a mother in another family
                 if mother_handle not in self.__used_people:
                     self.__used_people.append(mother_handle)
@@ -662,8 +670,12 @@ class HourGlassReport(Report):
 >>>>>>> fix multiple sosa number on same node
 =======
         # save node with them label, father node id, mother node id and sosanumber
+<<<<<<< HEAD
         self.__node_label[p_id] = [label, '', '', sosanumber]
 >>>>>>> Recursively rewrite sosa number for all ancestors
+=======
+        self.__node_label[p_id] = [label, '', '']
+>>>>>>> optimization - remove useless array[3]
 
     def add_family(self, family):
         """
