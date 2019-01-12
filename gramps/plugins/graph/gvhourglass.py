@@ -8,10 +8,14 @@
 # Copyright (C) 2013-2014 Paul Franklin
 # Copyright (C) 2015      Detlef Wolz <detlef.wolz@t-online.de>
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Copyright (C) 2018      Christophe aka khrys63
 =======
 # Contribution 2018 by    Christophe <khrys63>
 >>>>>>> Contribution
+=======
+# Copyright (C) 2018      Christophe aka khrys63
+>>>>>>> fix copyright format
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
